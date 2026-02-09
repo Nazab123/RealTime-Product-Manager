@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Redmi A5",
+    "description": "64gb de almacenamiento",
+    "price": "222",
+    "stock": "3",
+    "code": "33",
+    "thumbnail": "/imagenes/1770594991645-Redmi-A5-Midnight-Black.webp"
+  },
+  {
+    "name": "Samsung a16",
+    "description": "128gb de alamcenamiento",
+    "price": "20000",
+    "stock": "30",
+    "code": "1234",
+    "thumbnail": "/imagenes/1770595160396-OIP.webp"
+  }
+]
