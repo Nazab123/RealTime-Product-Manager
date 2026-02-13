@@ -24,8 +24,30 @@ socket.on("products", (products) => {
                 <td> ${p.price} </td>
                 <td> ${p.stock} </td>
                 <td> ${imagennueva} </td>
-                <td> ${p.code} </td>              
+                <td> ${p.code} </td>
+                <td> <button onclick="deleteProduct(${p.id})">
+              Eliminar
+              </button> </td>        
             </tr>
         `
     })
 })
+
+//Mando fetch(info para server con la direcion, el id y el metodo delete), espero a que responda, se puede eliminar correctamente, que no exista el producto o que no llegue respuesta
+async function deleteProduct(id){
+  try{
+  const response = await fetch (`/products/${id}`,{
+    method: "DELETE"
+  })
+
+  let data = await response.json()
+
+  if(response.status > 199 && response.status<300){
+    console.log ("eliminado correctamente", data.status)
+   } else {
+     console.error("Error del servidor:", data.error)
+  }
+  } catch (error){
+    console.error("Error del conexion")
+  }
+ }
