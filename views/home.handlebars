@@ -1,0 +1,44 @@
+<div class="container">
+
+  <div class="card shadow-sm">
+    <div class="card-body">
+
+      <h2 class="mb-4">Listado de Productos</h2>
+
+      <table class="table table-bordered table-hover align-middle">
+        <thead class="table-primary">
+          <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Imagen</th>
+            <th>Código</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {{#each products}}
+          <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.description}}</td>
+            <td>${{this.price}}</td>
+            <td>{{this.stock}}</td>
+            <td>
+              {{#if this.thumbnail}}
+                <img src="{{this.thumbnail}}" width="50" class="rounded">
+              {{else}}
+                Sin imagen
+              {{/if}}
+            </td>
+            <td>{{this.code}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+
+      </table>
+
+    </div>
+  </div>
+
+</div>

@@ -1,7 +1,3 @@
-process.on("unhandledRejection", (reason) => {
-  console.error("❌ unhandledRejection:", reason)
-})
-
 import express from "express"
 import handlebars from "express-handlebars"
 import {__dirname} from "./utils.js"
@@ -10,7 +6,6 @@ import path from "path"
 import fs from "fs/promises"
 
 import { Productosarray } from "./manager/ProductManager.js"
-
 
 const app = express()
 
@@ -48,20 +43,17 @@ app.get("/imagenes/:nombre", async (req, res) => {
   }
 })
 
-//muestro productos
-app.get(`/RealTimeProducts`, async(req, res)=>{
-    let products = await Productosarray()
-    res.render("RealTimeProducts", { products })
-})
-
-
-const httpServer = app.listen (8081, ()=> {
-    console.log("Escuchando al puerto 8081")
+const httpServer = app.listen (8080, ()=> {
+    console.log("Escuchando al puerto 8080")
 })
 
 const socketServer = new Server(httpServer)
 
 app.set("io", socketServer)
+
+//para msotrar productos
+import viewsRouter from "./routes/views.router.js"
+app.use("/", viewsRouter)
 
 import productsRouter from "./routes/products.router.js"
 app.use("/", productsRouter)
