@@ -1,18 +1,20 @@
 [
   {
-    "name": "Redmi A5",
-    "description": "64gb de almacenamiento",
-    "price": "222",
-    "stock": "3",
-    "code": "33",
-    "thumbnail": "/imagenes/1770594991645-Redmi-A5-Midnight-Black.webp"
+    "name": "Remera ",
+    "description": "roja",
+    "price": 500,
+    "stock": 10,
+    "thumbnail": "/imagenes/1771103836178-OIP (1).webp",
+    "code": "200",
+    "id": 1
   },
   {
-    "name": "Samsung a16",
-    "description": "128gb de alamcenamiento",
-    "price": "20000",
-    "stock": "30",
-    "code": "1234",
-    "thumbnail": "/imagenes/1770595160396-OIP.webp"
+    "name": "Remera",
+    "description": "Rosada",
+    "price": 400,
+    "stock": 50,
+    "thumbnail": "/imagenes/1771105722135-remera rosada.jpg",
+    "code": "555",
+    "id": 2
   }
 ]

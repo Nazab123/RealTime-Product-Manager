@@ -14,8 +14,15 @@ socket.on("products", (products) => {
     let imagennueva = ""
 
     if (p.thumbnail !== "") {
-      imagennueva = `<img src="${p.thumbnail}" width="50">`
-    } else {imagennueva = "Sin imagen"
+  imagennueva = `
+    <img 
+      src="${p.thumbnail}" 
+      width="50" 
+      style="cursor:pointer; border-radius:6px;"
+      onclick="openImageModal('${p.thumbnail}')"
+    >
+  `
+}else {imagennueva = "Sin imagen"
     }
         tablebody.innerHTML += `
             <tr>
@@ -25,9 +32,11 @@ socket.on("products", (products) => {
                 <td> ${p.stock} </td>
                 <td> ${imagennueva} </td>
                 <td> ${p.code} </td>
-                <td> <button onclick="deleteProduct(${p.id})">
-              Eliminar
-              </button> </td>        
+                <td class="text-end">
+                <button class="btn btn-sm btn-outline-danger" onclick="deleteProduct(${p.id})">
+                Eliminar
+                </button>
+              </td>
             </tr>
         `
     })
@@ -51,3 +60,11 @@ async function deleteProduct(id){
     console.error("Error del conexion")
   }
  }
+
+ function openImageModal(src) {
+  const modalImg = document.getElementById("modalImage")
+  modalImg.src = src
+
+  const modal = new bootstrap.Modal(document.getElementById("imageModal"))
+  modal.show()
+}
